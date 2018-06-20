@@ -1,0 +1,25 @@
+# parent image
+FROM mightyvincent/node-oracle-slim
+LABEL maintainer="ancienlee@live.com"
+
+# prepare dirs
+RUN mkdir -p /home/node/app \
+    && mkdir -p /home/node/logs
+
+# add app sources
+COPY . /home/node/app
+
+# pm2
+RUN npm install pm2 -g
+
+# app denpendencies
+RUN pwd \
+    && cd /home/node/app \
+    && npm install oracledb --unsafe-perm=true --allow-root \
+    && npm install
+
+# run app
+WORKDIR /home/node/app
+EXPOSE 55552
+CMD ["pm2", "start", "pm2.json", "--no-daemon"]
+# CMD ["npm", "run", "prod"]

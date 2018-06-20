@@ -1,6 +1,6 @@
 # parent image
 FROM node:8.11.2-slim
-LABEL maintainer="vincentlee@dengtacj.com"
+LABEL maintainer="ancienlee@live.com"
 
 # runtime
 RUN cd /etc/apt \

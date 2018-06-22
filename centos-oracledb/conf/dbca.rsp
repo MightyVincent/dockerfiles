@@ -1,0 +1,16 @@
+[GENERAL]
+RESPONSEFILE_VERSION = "11.2.0"
+OPERATION_TYPE = "createDatabase"
+[CREATEDATABASE]
+GDBNAME = "orcl"
+SID = "orcl"
+TEMPLATENAME = "General_Purpose.dbc"
+characterSet = "AL32UTF8"
+memoryPercentage = "80"
+emConfiguration = "LOCAL"
+sysPassword = "oracle"
+systemPassword = "oracle"
+dbsnmpPassword = "oracle"
+sysmanPassword = "oracle"
+DATAFILEDESTINATION =/db/app/oracle/oradata
+RECOVERYAREADESTINATION=/db/app/oracle/fast_recovery_area

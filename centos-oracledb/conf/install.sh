@@ -4,12 +4,12 @@
 unzip /tmp/lib/linux.x64_11gR2_database_1of2.zip -d /db && \
 unzip /tmp/lib/linux.x64_11gR2_database_2of2.zip -d /db && \
 # conf
-mkdir -p /db/etc/response && \
-cp /db/database/response/*.rsp /db/etc/response && \
+mkdir -p /db/etc && \
+cp /db/database/response/*.rsp /db/etc && \
 # remove comments and blanks
-sed -i 's/^#.*$//g' /db/etc/response/*.rsp && \
-sed -i '/^$/d' /db/etc/response/*.rsp && \
-cp -f /tmp/db_install.rsp /db/etc/response/db_install.rsp && \
+sed -i 's/^#.*$//g' /db/etc/*.rsp && \
+sed -i '/^$/d' /db/etc/*.rsp && \
+cp -f /tmp/db_install.rsp /db/etc/db_install.rsp && \
 echo "127.0.0.1 centos-orcl" >> /etc/hosts
 
 localedef -v -c -i en_US -f UTF-8 en_US.UTF-8
@@ -19,7 +19,7 @@ mount -o size=1G -o nr_inodes=1000000 -o noatime,nodiratime -o remount /dev/shm
 
 # install
 su oracle
-/db/database/runInstaller -silent -ignorePrereq -responseFile /db/etc/response/db_install.rsp
+/db/database/runInstaller -silent -ignorePrereq -responseFile /db/etc/db_install.rsp
 su root
 /db/app/oracle/inventory/orainstRoot.sh
 /db/app/oracle/product/11.2.0/root.sh
@@ -30,11 +30,11 @@ rm -rf /db/database
 
 # listener
 su oracle
-netca /silent /responsefile /db/etc/response/netca.rsp
+netca /silent /responsefile /db/etc/netca.rsp
 netstat -tnulp | grep 1521
 
 export DISPLAY=:0.0
-dbca -silent -responseFile /db/etc/response/dbca.rsp
+dbca -silent -responseFile /db/etc/dbca.rsp
 ps -ef | grep ora_ | grep -v grep
 # dbca -silent -deleteDatabase -sourceDB jingyu -sysDBAUserName sys -sysDBAPassword oracle
 # vi /etc/oratab

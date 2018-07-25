@@ -1,0 +1,31 @@
+{
+  "dbConf": {
+    "app": {
+      "type": "mysql",
+      "poolAttrs": {
+        "connectionLimit": 20,
+        "multipleStatements": true,
+        "acquireTimeout": 10000,
+        "host": "47.106.70.198",
+        "user": "root",
+        "password": "Root@123",
+        "database": "db_test",
+        "port": 3306
+      }
+    },
+    "hk": {
+      "type": "oracle",
+      "poolAttrs": {
+        "user": "proj",
+        "password": "proj",
+        "connectString": "192.168.128.129:1521/dt",
+        "poolMax": 20,
+        "poolTimeout": 60
+      }
+    }
+  },
+  "redisConf": {
+    "host": "192.168.9.91",
+    "port": "6379"
+  }
+}

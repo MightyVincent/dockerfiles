@@ -1,0 +1,28 @@
+{
+  "dbConf": {
+    "app": {
+      "type": "oracle",
+      "poolAttrs": {
+        "user": "dt",
+        "password": "123456",
+        "connectString": "192.168.27.134:1521/orcl.host-10-0-4-10.openstacklocal",
+        "poolMax": 20,
+        "poolTimeout": 60
+      }
+    },
+    "hk": {
+      "type": "oracle",
+      "poolAttrs": {
+        "user": "center_admin",
+        "password": "center_admin",
+        "connectString": "192.168.24.208:1521/orcl",
+        "poolMax": 20,
+        "poolTimeout": 60
+      }
+    }
+  },
+  "redisConf": {
+    "host": "redis",
+    "port": "6379"
+  }
+}

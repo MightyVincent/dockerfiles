@@ -1,0 +1,18 @@
+version: '1'
+services:
+  web:
+    container_name: proj-wx-server
+    restart: always
+    build: .
+    ports:
+    - "55552:55552"
+    volumes:
+    - shared:/opt/wxapp/shared/
+    links:
+    - proj-redis:redis
+  redis:
+    container_name: proj-redis
+    restart: always
+    image: redis
+volumes:
+  logvolume01: {}

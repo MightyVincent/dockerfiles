@@ -1,0 +1,15 @@
+# IDE
+.idea
+
+# node.js
+node_modules
+dist
+distTpl
+
+# others
+demo
+doc
+pageRebuild
+public/release
+.gitignore
+releases
